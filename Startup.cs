@@ -6,6 +6,7 @@ using bit285_assignment2_login.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace bit285_assignment2_login
@@ -18,6 +19,10 @@ namespace bit285_assignment2_login
         {
             services.AddMvc();
             services.AddTransient<PasswordSuggetionService>();
+            services.AddDbContext<BitDataContext>(options =>
+            {
+                options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=BitDatabase;Trusted_Connection=True");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

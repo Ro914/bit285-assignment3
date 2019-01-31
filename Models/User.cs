@@ -7,7 +7,9 @@ namespace bit285_assignment2_login.Models
 {
     public class User
     {
-        
+        //Represents Primary Key
+        public long Id { get; set;  }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
