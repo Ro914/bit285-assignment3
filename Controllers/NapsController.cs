@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using bit285_assignment2_login.Models;
-
+using bit285_assignment2_login.ViewModels;
 
 namespace bit285_assignment2_login.Controllers
 {
@@ -42,47 +42,50 @@ namespace bit285_assignment2_login.Controllers
         {
             //The route includes the id as the parameter
             User dbUser = _dbc.Users.Find(id);
+            PasswordInfo passwordInfo = new PasswordInfo()
+            {
+                Id = dbUser.Id,
+                LastName = dbUser.LastName
+            };
 
-             return View( new { LastName = dbUser.LastName });
+             return View(passwordInfo);
         }
         [HttpPost]
-        public IActionResult PasswordInfo(User account, string dummy)
+        public IActionResult PasswordInfo(PasswordInfo info)
         {
-
-            return RedirectToAction("SelectPassword", "Naps", account);
+            return RedirectToAction("SelectPassword", info);
         }
         /* 
          * 3) Select Password  
         */
         [HttpGet]
-        public IActionResult SelectPassword(User account)
+        public IActionResult SelectPassword(PasswordInfo info)
         {
-            return View(account);
+            return View(info);
         }
         [HttpPost]
-        public IActionResult SelectPassword(User account, string dummy)
+        public IActionResult SelectPassword(PasswordInfo info, string dummy)
         {
-            return RedirectToAction("ConfirmAccount", "Naps", account);
+            //PasswordInfo ViewModel includes the UserId, get the User
+            User dbUser = _dbc.Users.Find(info.Id);
+            //Update the user password from the form
+            dbUser.Password = info.Password;
+            _dbc.SaveChanges();
+            return RedirectToAction("ConfirmAccount", new { id = dbUser.Id });
         }
         /* 
          * 4) Confirm Account 
         */
         [HttpGet]
-        public IActionResult ConfirmAccount(User account)
+        public IActionResult ConfirmAccount(long Id)
         {
-            return View(account);
+            return View(_dbc.Users.Find(Id));
         }
         [HttpPost]
-        public IActionResult ConfirmAccount()
+        public IActionResult ConfirmAccount(User user)
         {
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Login",user);
         }
-        /* 
-         * 5) Login 
-        */
-        public IActionResult Login()
-        {
-            return View();
-        }
+
     }
 }
