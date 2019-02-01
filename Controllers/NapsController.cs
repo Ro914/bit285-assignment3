@@ -10,6 +10,14 @@ namespace bit285_assignment2_login.Controllers
 {
     public class NapsController : Controller
     {
+        private BitDataContext _dbc;
+        /*
+         * Constructor
+         */
+         public NapsController(BitDataContext dbc)
+        {
+            _dbc = dbc;
+        }
 
         /* 
          * 1) Account Info 
@@ -19,17 +27,23 @@ namespace bit285_assignment2_login.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AccountInfo(User account)
+        public IActionResult AccountInfo(User user)
         {
-            return RedirectToAction("PasswordInfo", "Naps", account);
+            _dbc.Add<User>(user);
+            _dbc.SaveChanges();
+
+            return RedirectToAction("PasswordInfo", new { id=user.Id});
         }
         /* 
          * 2) Password Info 
         */
         [HttpGet]
-        public IActionResult PasswordInfo(User account)
+        public IActionResult PasswordInfo(long id)
         {
-             return View(account);
+            //The route includes the id as the parameter
+            User dbUser = _dbc.Users.Find(id);
+
+             return View( new { LastName = dbUser.LastName });
         }
         [HttpPost]
         public IActionResult PasswordInfo(User account, string dummy)
