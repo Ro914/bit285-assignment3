@@ -36,7 +36,7 @@ namespace bit285_assignment2_login
             app.UseMvc(routes =>
             {
                 routes.MapRoute("Default",
-                    "{controller=Naps}/{action=AccountInfo}/{id:long?}");
+                    "{controller=Login}/{action=Index}/{id:long?}");
             });
 
             app.UseFileServer();

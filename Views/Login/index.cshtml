@@ -4,21 +4,24 @@
     Layout = "_Layout";
 }
 <h1>Login</h1>
-<fieldset>
-    <form asp-action="Index" method="post">
+
+<form asp-action="Index" method="post">
+    <fieldset>
         <div>
-            <label asp-for="UserName">Username (Email)</label>
+            <label asp-for="UserName"></label>
             <input asp-for="UserName" />
-            <span>* required</span>
+            <span asp-validation-for="UserName"></span>
         </div>
         <div>
             <label asp-for="Password"></label>
             <input asp-for="Password" type="password" />
-            <span>* required</span>
+            <span asp-validation-for="Password"></span>
         </div>
         <div>
             <input type="submit" value="Login" />
             <input type="button" value="Reset" />
         </div>
-    </form>
-</fieldset>
+    </fieldset>
+</form>
+<div>@ViewBag.LoginIssue</div>
+<div><a asp-controller="Naps" asp-action="AccountInfo">Create an Account</a></div>

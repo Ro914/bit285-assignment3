@@ -15,6 +15,5 @@ namespace bit285_assignment2_login.Models
         public string EmailAddress { get; set; }
         public string Password { get; set; }
         public string Program { get; set; }
-
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bit285_assignment2_login.Models;
 
-namespace bit285assignment2login.Migrations
+namespace bit285_assignment2_login.Migrations
 {
     [DbContext(typeof(BitDataContext))]
     [Migration("20190201070928_initial")]

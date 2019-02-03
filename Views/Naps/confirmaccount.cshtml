@@ -26,9 +26,6 @@
             <label asp-for="Password"></label>
             <span>@Model.Password</span>
         </div>
-        <div>
-            <input type="submit" value="Go to Login" />
-            <input type="button" value="Reset" />
-        </div>
     </form>
 </fieldset>
+<a asp-controller="Login" asp-action="Index" asp-route-id="@Model.Id">Login</a>

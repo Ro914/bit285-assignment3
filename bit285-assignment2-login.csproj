@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>bit285_assignment2_login</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

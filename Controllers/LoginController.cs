@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using bit285_assignment2_login.Models;
+using bit285_assignment2_login.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,27 +23,47 @@ namespace bit285_assignment2_login.Controllers
 
 
         [HttpGet]
-        public IActionResult Index(User user)
+        public IActionResult Index(long id)
         {
-            if(user != null)
+            //Set the view to display the username if the given id matches a user
+            if(id != 0)
             {
-                ViewModels.Login login = new ViewModels.Login()
+                User user = _dbc.Users.Find(id);
+                if (user != null)
                 {
-                    UserName = user.EmailAddress
-                };
-                return View(login);
+                    Login login = new Login()
+                    {
+                        UserName = user.EmailAddress
+                    };
+                    return View(login);
+                }
             }
             return View();
         }
         [HttpPost]
-        public IActionResult Index(ViewModels.Login login)
-        {
-            if (!ModelState.IsValid || !login.isUser(_dbc))
-            {
-                return View(login);
-            }
+        public IActionResult Index(Login login)
+        { 
+            //First check if the form values are valid
+            if (!ModelState.IsValid) { return View(); }
 
-            return RedirectToAction("Welcome");
+            //Second check if the user credentials are correct
+            if (_dbc.Users.Any<User>(u => u.EmailAddress == login.UserName && u.Password == login.Password))
+            {
+                return RedirectToAction("Welcome");
+            }
+            else //go back to an empty view to try again
+            {
+                ViewBag.LoginIssue = "There is a problem with your username or password.";
+                return View();
+            }
+        }
+
+
+        [HttpGet]
+        public IActionResult Welcome()
+        {
+            IEnumerable<User> users = _dbc.Users.OrderBy(u => u.Program).ToList<User>();
+            return View(users);
         }
     }
 }
