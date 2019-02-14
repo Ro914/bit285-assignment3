@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using bit285_assignment2_login.Models;
 using bit285_assignment2_login.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -49,7 +50,6 @@ namespace bit285_assignment2_login.Controllers
             //Second check if the user credentials are correct
             if (_dbc.Users.Any<User>(u => u.EmailAddress == login.UserName && u.Password == login.Password))
             {
-
                 return RedirectToAction("Welcome");
             }
             else //go back to an empty view to try again

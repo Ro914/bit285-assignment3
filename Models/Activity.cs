@@ -11,9 +11,7 @@ namespace bit285_assignment2_login.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime ActivityDate { get; set; }
-
-        public string IpAddress { get; set; }
+        public DateTime ActivityDate { get; set; }  
 
         //Navigation Property
         public User Actor { get; set; }

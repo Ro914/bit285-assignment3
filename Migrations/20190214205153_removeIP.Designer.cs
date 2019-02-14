@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bit285_assignment2_login.Models;
 
 namespace bit285_assignment2_login.Migrations
 {
     [DbContext(typeof(BitDataContext))]
-    partial class BitDataContextModelSnapshot : ModelSnapshot
+    [Migration("20190214205153_removeIP")]
+    partial class removeIP
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
