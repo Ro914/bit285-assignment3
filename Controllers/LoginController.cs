@@ -49,6 +49,7 @@ namespace bit285_assignment2_login.Controllers
             //Second check if the user credentials are correct
             if (_dbc.Users.Any<User>(u => u.EmailAddress == login.UserName && u.Password == login.Password))
             {
+
                 return RedirectToAction("Welcome");
             }
             else //go back to an empty view to try again

@@ -29,7 +29,8 @@ namespace bit285_assignment2_login.Controllers
         [HttpPost]
         public IActionResult AccountInfo(User user)
         {
-            _dbc.Add<User>(user);
+            //Add User information to the database
+            _dbc.Users.Add(user);
             _dbc.SaveChanges();
 
             return RedirectToAction("PasswordInfo", new { id=user.Id});
@@ -40,9 +41,10 @@ namespace bit285_assignment2_login.Controllers
         [HttpGet]
         public IActionResult PasswordInfo(long id)
         {
-            //The route includes the id as the parameter
-            User dbUser = _dbc.Users.Find(id);
-            PasswordInfo passwordInfo = new PasswordInfo()
+            //Get the User information from the db
+            User dbUser = _dbc.Users.Single(u=>u.Id==id);
+            //Create a new PasswordInfo object
+            PasswordInfo passwordInfo = new PasswordInfo
             {
                 Id = dbUser.Id,
                 LastName = dbUser.LastName
@@ -64,27 +66,24 @@ namespace bit285_assignment2_login.Controllers
             return View(info);
         }
         [HttpPost]
-        public IActionResult SelectPassword(PasswordInfo info, string dummy)
+        public IActionResult SelectPassword(long id, PasswordInfo info)
         {
             //PasswordInfo ViewModel includes the UserId, get the User
-            User dbUser = _dbc.Users.Find(info.Id);
+            User dbUser = _dbc.Users.Single(u=>u.Id == id);
+
             //Update the user password from the form
             dbUser.Password = info.Password;
             _dbc.SaveChanges();
-            return RedirectToAction("ConfirmAccount", new { id = dbUser.Id });
+
+            return RedirectToAction("ConfirmAccount", dbUser);
         }
         /* 
          * 4) Confirm Account 
         */
         [HttpGet]
-        public IActionResult ConfirmAccount(long Id)
-        {
-            return View(_dbc.Users.Find(Id));
-        }
-        [HttpPost]
         public IActionResult ConfirmAccount(User user)
         {
-            return RedirectToAction("Index","Login",user);
+            return View(user);
         }
 
     }
