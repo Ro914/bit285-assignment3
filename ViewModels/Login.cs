@@ -15,10 +15,5 @@ namespace bit285_assignment2_login.ViewModels
         [Display(AutoGenerateField =true)]
         [Required(ErrorMessage = "*")]
         public string Password { get; set; }
-
-        public bool IsUser(BitDataContext dbc)
-        {
-            return dbc.Users.Any(u => (u.EmailAddress == UserName && u.Password == Password));
-        }
     }
 }
