@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace bit285_assignment2_login.ViewModels
+namespace bit285_assignment3_api.ViewModels
 {
     public class PasswordInfo
     {

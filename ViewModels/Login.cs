@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using bit285_assignment2_login.Models;
+using bit285_assignment3_api.Models;
 
-namespace bit285_assignment2_login.ViewModels
+namespace bit285_assignment3_api.ViewModels
 {
     public class Login
     {

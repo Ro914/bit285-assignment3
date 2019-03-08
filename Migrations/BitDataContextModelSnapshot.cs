@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using bit285_assignment2_login.Models;
+using bit285_assignment3_api.Models;
 
-namespace bit285_assignment2_login.Migrations
+namespace bit285_assignment3_api.Migrations
 {
     [DbContext(typeof(BitDataContext))]
     partial class BitDataContextModelSnapshot : ModelSnapshot

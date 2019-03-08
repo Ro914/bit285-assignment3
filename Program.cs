@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace bit285_assignment2_login
+namespace bit285_assignment3_api
 {
     public class Program
     {

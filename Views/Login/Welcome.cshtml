@@ -1,4 +1,4 @@
-﻿@model IEnumerable<bit285_assignment2_login.Models.User>
+﻿@model IEnumerable<bit285_assignment3_api.Models.User>
 @{
     Layout = "_Layout";
     ViewBag.Title = "Welcome";
@@ -8,7 +8,7 @@
 <table>
     <thead><tr><th>User</th><th>Program</th></tr></thead>
     <tbody>
-        @foreach(bit285_assignment2_login.Models.User u in Model)
+        @foreach(bit285_assignment3_api.Models.User u in Model)
         {
             <tr><td>@u.LastName, @u.FirstName</td><td>@u.Program</td></tr>
         }

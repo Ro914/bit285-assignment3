@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace bit285_assignment2_login.Models
+namespace bit285_assignment3_api.Models
 {
     public class BitDataContext :DbContext 
     {

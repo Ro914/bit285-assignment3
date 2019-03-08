@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace bit285_assignment2_login.Migrations
+namespace bit285_assignment3_api.Migrations
 {
     public partial class initial : Migration
     {

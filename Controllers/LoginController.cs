@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using bit285_assignment2_login.Models;
-using bit285_assignment2_login.ViewModels;
+using bit285_assignment3_api.Models;
+using bit285_assignment3_api.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace bit285_assignment2_login.Controllers
+namespace bit285_assignment3_api.Controllers
 {
     public class LoginController : Controller
     {

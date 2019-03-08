@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace bit285_assignment2_login.Models
+namespace bit285_assignment3_api.Models
 {
     public class User
     {

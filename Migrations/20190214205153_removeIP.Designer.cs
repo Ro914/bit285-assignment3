@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using bit285_assignment2_login.Models;
+using bit285_assignment3_api.Models;
 
-namespace bit285_assignment2_login.Migrations
+namespace bit285_assignment3_api.Migrations
 {
     [DbContext(typeof(BitDataContext))]
     [Migration("20190214205153_removeIP")]

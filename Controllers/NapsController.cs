@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using bit285_assignment2_login.Models;
-using bit285_assignment2_login.ViewModels;
+using bit285_assignment3_api.Models;
+using bit285_assignment3_api.ViewModels;
 
-namespace bit285_assignment2_login.Controllers
+namespace bit285_assignment3_api.Controllers
 {
     public class NapsController : Controller
     {

@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bit285-assignment2-login", "bit285-assignment2-login.csproj", "{5C3CC94C-4209-444E-86B6-120821394308}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bit285-assignment3-api", "bit285-assignment3-api.csproj", "{5C3CC94C-4209-444E-86B6-120821394308}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
