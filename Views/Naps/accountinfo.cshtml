@@ -1,4 +1,5 @@
-﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+﻿@using bit285_assignment3_api.Models;
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
 @model bit285_assignment3_api.Models.User
 @{
     Layout = "_Layout";
@@ -23,10 +24,8 @@
         </div>
         <div>
             <label asp-for="Program"></label>
-            <select asp-for="Program">
-                <option>Web App Dev</option>
-                <option>Mobile App Dev</option>
-                <option>Front-end Dev</option>
+            <select asp-for="Program" asp-items="@new  SelectList(Enum.GetNames(typeof(ProgramType)))">
+                <option disabled selected value="">Select a Program</option>
             </select>
         </div>
         <div>

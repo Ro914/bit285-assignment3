@@ -17,10 +17,19 @@ namespace bit285_assignment3_api.Models
         [Required(ErrorMessage = "* required")]
         public string EmailAddress { get; set; }
         [Required(ErrorMessage = "* required")]
-        public string Program { get; set; }
+        public ProgramType Program { get; set; }
         public string Password { get; set; }
 
         //Navigation Property
         public ICollection<Activity> Activities { get; set; }
+    }
+
+    //Designate only specific types of Programs
+    public enum ProgramType
+    {
+        WebApp,
+        Programming,
+        Network,
+        Mobile
     }
 }

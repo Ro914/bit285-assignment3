@@ -3,10 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace bit285_assignment3_api.Models
 {
-    public class BitDataContext :DbContext 
+    public class BitDataContext : DbContext
     {
         public BitDataContext(DbContextOptions<BitDataContext> options)
-        :base(options){}
+        : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
         //Access to Collections representing DB tables
         public DbSet<User> Users { get; set; }
@@ -17,7 +20,7 @@ namespace bit285_assignment3_api.Models
         //TODO: Update with your Database, User, and Password
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-                optionsBuilder.UseSqlServer("Server=localhost,1433; Database=BitData;User=SA; Password=Pa$$word!");
+            optionsBuilder.UseSqlServer("Server=localhost,1433; Database=BitData;User=SA; Password=Pa$$word!");
         }
     }
 
