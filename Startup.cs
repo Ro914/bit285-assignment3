@@ -36,7 +36,7 @@ namespace bit285_assignment3_api
             app.UseMvc(routes =>
             {
                 routes.MapRoute("Default",
-                    "{controller=Login}/{action=Index}/{id:long?}");
+                    "{controller=Admin}/{action=Index}/{id:long?}");
             });
 
             app.UseFileServer();

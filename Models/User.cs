@@ -9,7 +9,7 @@ namespace bit285_assignment3_api.Models
     public class User
     {
         //Represents Primary Key
-        public long Id { get; set;  }
+        public long Id { get; set; }
         [Required(ErrorMessage = "* required")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "* required")]
@@ -19,7 +19,10 @@ namespace bit285_assignment3_api.Models
         [Required(ErrorMessage = "* required")]
         public ProgramType Program { get; set; }
         public string Password { get; set; }
-
+        public string FullName
+        {
+            get { return LastName + ", " + FirstName; }
+        }
         //Navigation Property
         public ICollection<Activity> Activities { get; set; }
     }
