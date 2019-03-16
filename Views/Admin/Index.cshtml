@@ -20,7 +20,8 @@
                 <td>@u.Program</td>
                 <td>
                     <a asp-action="UpdateUser" asp-route-id="@u.Id">Update</a> |
-                    <a asp-action="RemoveUser" asp-route-id="@u.Id">Remove</a>
+                    <a asp-action="RemoveUser" asp-route-id="@u.Id">Remove</a> |
+                    <a asp-action="UserActivities" asp-route-id="@u.Id">Activities</a>
                 </td>
             </tr>
         }
