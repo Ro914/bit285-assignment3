@@ -36,7 +36,8 @@ namespace bit285_assignment3_api.Controllers
             else
             {
                 // returns the list of users with any part of their full names matching the search string
-                userAdmin.Users = _dbc.Users.Where(u => u.FullName.Contains(userAdmin.FullName));
+                // .ToLower() used to allow searches ignoring case
+                userAdmin.Users = _dbc.Users.Where(u => u.FullName.ToLower().Contains(userAdmin.FullName.ToLower()));
             }
             return View(userAdmin);
         }
