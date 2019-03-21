@@ -21,7 +21,8 @@
                 <td>
                     <a asp-action="UpdateUser" asp-route-id="@u.Id">Update</a> |
                     <a asp-action="RemoveUser" asp-route-id="@u.Id">Remove</a> |
-                    <a asp-action="UserActivities" asp-route-id="@u.Id">Activities</a>
+                    <a asp-action="UserActivities" asp-route-id="@u.Id">Activities</a> |
+                    <button class="removeuser" value="@u.Id">Remove</button>
                 </td>
             </tr>
         }
@@ -33,3 +34,18 @@
           minLength: 2
         });
       });</script>
+<script>
+    $(document).ready(function(){
+        $('.removeuser').click(function () {
+            var id = $(this).val();
+            $.ajax({
+                url: "/api/User/" + id,
+                type: "delete",
+                success: function () {
+                    location.reload();
+                    alert("User has been removed");
+                }
+            })
+        });
+    });
+</script>
